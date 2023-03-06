@@ -15,7 +15,7 @@ def multipage(filename, figs=None, dpi=200):
 
 
 ### Función tomada del código del doc Martín para graficar una curva
-def XYplot(x,y, xmin, xmax, xlab, ylab, fig_title, symbol_color, scale=True): 
+def XYplot(x, y, xmin, xmax, ymin, ymax, xlab, ylab, fig_title, symbol_color, scale=True):
     
     #        import numpy as np
 
@@ -23,6 +23,7 @@ def XYplot(x,y, xmin, xmax, xlab, ylab, fig_title, symbol_color, scale=True):
     fig.suptitle(fig_title, fontsize=12)
     plt.plot(x, y,  symbol_color)
     plt.xlim(xmin, xmax)
+    plt.ylim(ymin, ymax)
     plt.xlabel(xlab)
     plt.ylabel(ylab)
     plt.grid(True)
@@ -65,7 +66,7 @@ def XYplot_profiles(nt, time, y_time, x_sec_min, x_sec_max, nx, xlab, ylab, fig_
             label = 't = ' + str(time[i])    
             plt.plot(x_sec, yt,  color=color_sequence[i % 20], label=label) 
             if legend:
-               subfig.legend()           
+               subfig.legend()
 #            subfig.grid(True)
 
 #   plt.show(block=True)
